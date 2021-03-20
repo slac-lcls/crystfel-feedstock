@@ -1,0 +1,44 @@
+{% set name = "crystfel" %}
+{% set version = "0.0.0"  %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+#source:
+  #url:
+  #sha256:
+
+build:
+  skip: True # [win or osx]
+  number: 1
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - cmake
+    - make
+    - bison
+    - flex
+  host:
+    - gsl
+    - hdf5
+    - fftw
+    - ncurses
+    - libtiff
+    - libpng
+    - ocl-icd
+    - zlib
+    - xgandalf
+
+# Uncomment and fill in . metadata
+about:
+  home: https://www.desy.de/~twhite/crystfel/
+  license: LGPL-3.0-only
+  license_family: GPL
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - fredericpoitevin
+    - valmar
