@@ -1,42 +1,66 @@
 {% set name = "crystfel" %}
-{% set version = "0.0.0"  %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
-#source:
-  #url:
-  #sha256:
+source:
+  url: https://www.desy.de/~twhite/crystfel/crystfel-0.9.1.tar.gz
+  sha256: 1eaf757eb093385fbc16298168e683a5b3ef572800b8b22072886a76143b70be
+  patches:
+    - cmake.patch
 
 build:
-  skip: True # [win or osx]
-  number: 1
+  skip: True  # [win or osx]
+  number: 0
 
 requirements:
-  build:
-    - {{ compiler('c') }}
-    - cmake
-    - make
-    - bison
-    - flex
-  host:
-    - gsl
-    - hdf5
-    - fftw
-    - ncurses
-    - libtiff
-    - libpng
-    - ocl-icd
-    - zlib
-    - xgandalf
+    build:
+        - {{ compiler('c') }}
+        - pkg-config
+        - cmake
+        - make
+        - bison
+        - flex
+    host:
+        - glib
+        - gtk2
+        - gsl
+        - hdf5
+        - fftw
+        - ncurses
+        - libtiff
+        - libpng
+        - zlib
+        - xgandalf
+    run:
+        - gsl
+        - hdf5
+        - fftw
+        - ncurses
+        - libtiff
+        - libpng
+        - zlib
+        - xgandalf
 
-# Uncomment and fill in . metadata
 about:
-  home: https://www.desy.de/~twhite/crystfel/
-  license: LGPL-3.0-only
+  home: https://www.desy.de/~twhite/crystfel/index.html
+  license: GPL-3.0-or-later
   license_family: GPL
-  license_file: LICENSE
+  license_file: COPYING
+  summary: 'suite of programs for processing diffraction data'
+  description: |
+     a suite of programs for processing diffraction data 
+     acquired "serially" in a "snapshot" manner, such as when 
+     using the technique of Serial Femtosecond Crystallography
+     (SFX) with a free-electron laser source. CrystFEL 
+     comprises programs for indexing and integrating diffraction
+     patterns, scaling and merging intensities, simulating
+     patterns, calculating figures of merit for the data and
+     visualising the results.
+  doc_url: https://www.desy.de/~twhite/crystfel/index.html
+  dev_url: https://stash.desy.de/projects/CRYS/repos/crystfel/commits
 
 extra:
   recipe-maintainers:

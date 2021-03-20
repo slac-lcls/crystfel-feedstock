@@ -1,0 +1,43 @@
+diff --git a/libcrystfel/CMakeLists.txt b/libcrystfel/CMakeLists.txt
+index 9f79b0c4..ab4661e4 100644
+--- a/libcrystfel/CMakeLists.txt
++++ b/libcrystfel/CMakeLists.txt
+@@ -151,28 +151,28 @@ target_link_libraries(${PROJECT_NAME} PRIVATE util ${HDF5_C_LIBRARIES} ${ZLIB_LI
+                       Threads::Threads GSL::gsl m)
+ 
+ if (XGANDALF_FOUND)
+-  target_include_directories(${PROJECT_NAME} PRIVATE ${XGANDALF_INCLUDES})
+-  target_link_libraries(${PROJECT_NAME} PRIVATE ${XGANDALF_LIBRARIES})
++  target_include_directories(${PROJECT_NAME} PUBLIC ${XGANDALF_INCLUDES})
++  target_link_libraries(${PROJECT_NAME} PUBLIC ${XGANDALF_LIBRARIES})
+ endif (XGANDALF_FOUND)
+ 
+ if (FDIP_FOUND)
+-  target_include_directories(${PROJECT_NAME} PRIVATE ${FDIP_INCLUDES})
+-  target_link_libraries(${PROJECT_NAME} PRIVATE ${FDIP_LIBRARIES})
++  target_include_directories(${PROJECT_NAME} PUBLIC ${FDIP_INCLUDES})
++  target_link_libraries(${PROJECT_NAME} PUBLIC ${FDIP_LIBRARIES})
+ endif (FDIP_FOUND)
+ 
+ if (PINKINDEXER_FOUND)
+-  target_include_directories(${PROJECT_NAME} PRIVATE ${PINKINDEXER_INCLUDES})
+-  target_link_libraries(${PROJECT_NAME} PRIVATE ${PINKINDEXER_LIBRARIES})
++  target_include_directories(${PROJECT_NAME} PUBLIC ${PINKINDEXER_INCLUDES})
++  target_link_libraries(${PROJECT_NAME} PUBLIC ${PINKINDEXER_LIBRARIES})
+ endif (PINKINDEXER_FOUND)
+ 
+ if (FFTW_FOUND)
+-  target_include_directories(${PROJECT_NAME} PRIVATE ${FFTW_INCLUDE_DIRS})
+-  target_link_libraries(${PROJECT_NAME} PRIVATE ${FFTW_LDFLAGS})
++  target_include_directories(${PROJECT_NAME} PUBLIC ${FFTW_INCLUDE_DIRS})
++  target_link_libraries(${PROJECT_NAME} PUBLIC ${FFTW_LDFLAGS})
+ endif (FFTW_FOUND)
+ 
+ if (CURSES_FOUND)
+-  target_include_directories(${PROJECT_NAME} PRIVATE ${CURSES_INCLUDE_DIRS})
+-  target_link_libraries(${PROJECT_NAME} PRIVATE ${CURSES_LIBRARIES})
++  target_include_directories(${PROJECT_NAME} PUBLIC ${CURSES_INCLUDE_DIRS})
++  target_link_libraries(${PROJECT_NAME} PUBLIC ${CURSES_LIBRARIES})
+ endif (CURSES_FOUND)
+ 
+ target_compile_options(${PROJECT_NAME} PRIVATE -Wall)

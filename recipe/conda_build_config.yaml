@@ -1,0 +1,4 @@
+channel_sources:
+  - fpoitevi,conda-forge,defaults
+channel_targets:
+  - fpoitevi main
